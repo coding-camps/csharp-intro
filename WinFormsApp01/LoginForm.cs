@@ -53,10 +53,11 @@ namespace WinFormsApp01
             {
                 Button btn = new Button();
                 btn.Text = $"按钮-{i + 1}";
-                btn.Location = new Point(30 + i * 200, 168);
+                btn.Location = new Point(30 + i * 200, 36);
                 btn.Size = new Size(168, 98);
                 btn.Click += btnList_Click;
-                Controls.Add(btn);
+                // Controls.Add(btn);
+                this.groupBox2.Controls.Add(btn);
             }
         }
 

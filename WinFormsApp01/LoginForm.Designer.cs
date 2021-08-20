@@ -35,6 +35,7 @@ namespace WinFormsApp01
             textBoxUsername = new TextBox();
             labelPassword = new Label();
             labelUsername = new Label();
+            groupBox2 = new GroupBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -59,9 +60,9 @@ namespace WinFormsApp01
             groupBox1.Controls.Add(labelPassword);
             groupBox1.Controls.Add(labelUsername);
             groupBox1.Font = new Font("Microsoft YaHei UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            groupBox1.Location = new Point(783, 180);
+            groupBox1.Location = new Point(39, 365);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(665, 527);
+            groupBox1.Size = new Size(665, 287);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "登录界面";
@@ -69,9 +70,9 @@ namespace WinFormsApp01
             // buttonLogin
             // 
             buttonLogin.Font = new Font("楷体", 12F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            buttonLogin.Location = new Point(248, 340);
+            buttonLogin.Location = new Point(462, 91);
             buttonLogin.Name = "buttonLogin";
-            buttonLogin.Size = new Size(201, 83);
+            buttonLogin.Size = new Size(151, 120);
             buttonLogin.TabIndex = 4;
             buttonLogin.Text = "登录";
             buttonLogin.UseVisualStyleBackColor = true;
@@ -80,7 +81,7 @@ namespace WinFormsApp01
             // textBoxPassword
             // 
             textBoxPassword.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            textBoxPassword.Location = new Point(286, 221);
+            textBoxPassword.Location = new Point(184, 160);
             textBoxPassword.MaxLength = 10;
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.PasswordChar = '*';
@@ -91,7 +92,7 @@ namespace WinFormsApp01
             // textBoxUsername
             // 
             textBoxUsername.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            textBoxUsername.Location = new Point(286, 149);
+            textBoxUsername.Location = new Point(184, 88);
             textBoxUsername.MaxLength = 10;
             textBoxUsername.Name = "textBoxUsername";
             textBoxUsername.PlaceholderText = "输入用户名";
@@ -102,7 +103,7 @@ namespace WinFormsApp01
             // 
             labelPassword.AutoSize = true;
             labelPassword.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            labelPassword.Location = new Point(166, 221);
+            labelPassword.Location = new Point(64, 160);
             labelPassword.Name = "labelPassword";
             labelPassword.Size = new Size(114, 41);
             labelPassword.TabIndex = 1;
@@ -112,20 +113,29 @@ namespace WinFormsApp01
             // 
             labelUsername.AutoSize = true;
             labelUsername.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            labelUsername.Location = new Point(166, 152);
+            labelUsername.Location = new Point(64, 91);
             labelUsername.Name = "labelUsername";
             labelUsername.Size = new Size(114, 41);
             labelUsername.TabIndex = 0;
             labelUsername.Text = "名称：";
             // 
-            // Form1
+            // groupBox2
+            // 
+            groupBox2.Location = new Point(39, 142);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(692, 155);
+            groupBox2.TabIndex = 2;
+            groupBox2.TabStop = false;
+            // 
+            // LoginForm
             // 
             AutoScaleDimensions = new SizeF(14F, 31F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1642, 929);
             Controls.Add(groupBox1);
+            Controls.Add(groupBox2);
             Controls.Add(btnTest01);
-            Name = "Form1";
+            Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             groupBox1.ResumeLayout(false);
@@ -142,5 +152,6 @@ namespace WinFormsApp01
         private TextBox textBoxPassword;
         private TextBox textBoxUsername;
         private Button buttonLogin;
+        private GroupBox groupBox2;
     }
 }
