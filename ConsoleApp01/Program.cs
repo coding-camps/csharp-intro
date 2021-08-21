@@ -8,8 +8,9 @@ class Program
         // lesson01.eg06();
         // Lesson02 lesson02 = new Lesson02();
         // lesson02.eg08();
-        Lesson03 lesson03 = new Lesson03();
-        lesson03.eg09();
-        Console.ReadKey();
+        //Lesson03 lesson03 = new Lesson03();
+        //lesson03.eg09();
+        //Console.ReadKey();
+        Tech01.useDelegate();
     }
 }

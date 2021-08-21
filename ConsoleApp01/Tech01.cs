@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ConsoleApp01
+{
+    // 委托的案例1：古老的方法
+
+    // 委托的官方定义
+    // 委托是一种类型安全的指针，它封装了对方法的引用，
+    // 强制要求方法签名和委托定义一致，避免了不安全的类型转换。
+    // 民间看法：方法-> 一道菜，委托 -> 菜单
+
+    // 1. 声明委托
+    public delegate int MathOprDelegate(int num1, int num2);
+    internal class Tech01
+    {
+        // 2. 写方法
+        static int Add(int num1, int num2)
+        {
+            return num1 + num2;
+        }
+
+        // 3. 定义委托
+        static MathOprDelegate mathOprDelegate;
+        public static void useDelegate()
+        {
+            // 4. 绑定委托
+            mathOprDelegate = Add;
+
+            // 5. 使用委托
+            int result = mathOprDelegate(1, 2);
+            Console.WriteLine($"result = {result}");
+        }
+    }
+}
