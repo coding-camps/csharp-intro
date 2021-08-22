@@ -11,6 +11,7 @@ class Program
         //Lesson03 lesson03 = new Lesson03();
         //lesson03.eg09();
         //Console.ReadKey();
-        Tech01.useDelegate();
+        Tech01 tech01 = new Tech01();
+        tech01.useDelegate();
     }
 }

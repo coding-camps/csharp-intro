@@ -12,7 +12,7 @@ namespace ConsoleApp01
     // 民间看法：方法-> 一道菜，委托 -> 菜单
 
     // 1. 声明委托
-    public delegate int MathOprDelegate(int num1, int num2);
+    delegate int MathOprDelegate(int num1, int num2);
     internal class Tech01
     {
         // 2. 写方法
@@ -23,7 +23,7 @@ namespace ConsoleApp01
 
         // 3. 定义委托
         static MathOprDelegate mathOprDelegate;
-        public static void useDelegate()
+        public void useDelegate()
         {
             // 4. 绑定委托
             mathOprDelegate = Add;
