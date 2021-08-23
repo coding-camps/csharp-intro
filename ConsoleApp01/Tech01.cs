@@ -26,11 +26,18 @@ namespace ConsoleApp01
         public void useDelegate()
         {
             // 4. 绑定委托
-            mathOprDelegate = Add;
+            //mathOprDelegate = Add;
 
             // 5. 使用委托
-            int result = mathOprDelegate(1, 2);
-            Console.WriteLine($"result = {result}");
+            if (mathOprDelegate == null)
+            {
+                Console.WriteLine("委托没有绑定");
+            }
+            else
+            {
+                int result = mathOprDelegate(1, 2);
+                Console.WriteLine($"result = {result}");
+            }
         }
     }
 }
