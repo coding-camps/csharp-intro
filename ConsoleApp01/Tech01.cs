@@ -26,7 +26,7 @@ namespace ConsoleApp01
         public void useDelegate()
         {
             // 4. 绑定委托
-            //mathOprDelegate = Add;
+            mathOprDelegate = Add;
 
             // 5. 使用委托
             if (mathOprDelegate == null)
