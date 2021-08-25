@@ -39,5 +39,30 @@ namespace ConsoleApp01
                 Console.WriteLine($"result = {result}");
             }
         }
+
+        // 新的Delegate机制
+        // Action可以传递参数0-16个，无返回值
+        // Func可以传递参数0-16个，有返回值
+        // 可结合Lambda goesto 语法糖，用户创建“匿名方法”的简洁语法
+        // 方便创建Action和Func使用
+
+        // 新方式之定义委托
+        Action<int, int> AddAction;
+        public void useNewDelegateV1()
+        {
+            // 不使用上面的 step 1 和 2
+
+            AddAction = (a, b) =>
+            {
+                Console.WriteLine($"新方式Action示例1：{a} + {b} = {a + b}");
+            };
+            AddAction(1, 3);
+        }
+        public void useNewDelegateV2()
+        {
+            Action<int, int> AddAction = (a, b) => Console.WriteLine($"新方式Action示例2：{a} + {b} = {a + b}");
+            AddAction(2, 3);
+
+        }
     }
 }

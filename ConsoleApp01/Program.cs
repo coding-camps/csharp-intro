@@ -13,5 +13,7 @@ class Program
         //Console.ReadKey();
         Tech01 tech01 = new Tech01();
         tech01.useDelegate();
+        tech01.useNewDelegateV1();
+        tech01.useNewDelegateV2();
     }
 }
