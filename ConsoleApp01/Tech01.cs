@@ -64,5 +64,16 @@ namespace ConsoleApp01
             AddAction(2, 3);
 
         }
+        public void useNewDelegateFunc()
+        {
+            //Func<int, int, int> addFunc = (a, b) =>
+            //{
+            //    return a + b;
+            //};
+            Func<int, int, int> addFunc = (a, b) => a + b;
+            int p1 = 1, p2 = 2;
+            int result = addFunc(p1, p2);
+            Console.WriteLine($"新方式Func示例：{p1} + {p2} = {p1 * p2}");
+        }
     }
 }
