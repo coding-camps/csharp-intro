@@ -75,5 +75,36 @@ namespace ConsoleApp01
             int result = addFunc(p1, p2);
             Console.WriteLine($"新方式Func示例：{p1} + {p2} = {p1 * p2}");
         }
+
+        public void testMockDownload()
+        {
+            MockDownloadThread mockDownload = new MockDownloadThread();
+            mockDownload.download("http://www.xxx.com", (isSuccess) =>
+            {
+                var result = isSuccess ? "下载成功~！" : "下载失败~！";
+                Console.WriteLine(result);
+            });
+        }
+    }
+
+    public class MockDownloadThread
+    {
+        public void download(string url, Action<bool> callback)
+        {
+            Console.WriteLine();
+            Console.Write("模拟正在下载");
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write(".");
+                Thread.Sleep(200);
+            }
+            Console.WriteLine();
+            // 根据下载成功或失败的具体情况，以下两条语句只使用一个
+            // 模拟下载成功
+            callback(true);
+            //// 模拟下载失败
+            //callback(false);
+        }
+
     }
 }

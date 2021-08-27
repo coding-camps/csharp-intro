@@ -16,5 +16,6 @@ class Program
         tech01.useNewDelegateV1();
         tech01.useNewDelegateV2();
         tech01.useNewDelegateFunc();
+        tech01.testMockDownload();
     }
 }
