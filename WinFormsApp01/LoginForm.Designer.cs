@@ -36,7 +36,12 @@ namespace WinFormsApp01
             labelPassword = new Label();
             labelUsername = new Label();
             groupBox2 = new GroupBox();
+            groupBox3 = new GroupBox();
+            tbInfo = new TextBox();
+            btnSendInfo = new Button();
+            btnOpenFrm = new Button();
             groupBox1.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // btnTest01
@@ -127,11 +132,52 @@ namespace WinFormsApp01
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(tbInfo);
+            groupBox3.Controls.Add(btnSendInfo);
+            groupBox3.Controls.Add(btnOpenFrm);
+            groupBox3.Location = new Point(43, 680);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(480, 194);
+            groupBox3.TabIndex = 3;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "委托案例之窗体间传值";
+            // 
+            // tbInfo
+            // 
+            tbInfo.Location = new Point(16, 56);
+            tbInfo.MaxLength = 17;
+            tbInfo.Name = "tbInfo";
+            tbInfo.PlaceholderText = "2.这里填写的是传给下个窗口的消息";
+            tbInfo.Size = new Size(436, 38);
+            tbInfo.TabIndex = 2;
+            // 
+            // btnSendInfo
+            // 
+            btnSendInfo.Location = new Point(258, 115);
+            btnSendInfo.Name = "btnSendInfo";
+            btnSendInfo.Size = new Size(194, 44);
+            btnSendInfo.TabIndex = 1;
+            btnSendInfo.Text = "3.发送消息";
+            btnSendInfo.UseVisualStyleBackColor = true;
+            // 
+            // btnOpenFrm
+            // 
+            btnOpenFrm.Location = new Point(16, 115);
+            btnOpenFrm.Name = "btnOpenFrm";
+            btnOpenFrm.Size = new Size(194, 44);
+            btnOpenFrm.TabIndex = 0;
+            btnOpenFrm.Text = "1.打开窗体";
+            btnOpenFrm.UseVisualStyleBackColor = true;
+            btnOpenFrm.Click += btnOpenFrm_Click;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(14F, 31F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1642, 929);
+            Controls.Add(groupBox3);
             Controls.Add(groupBox1);
             Controls.Add(groupBox2);
             Controls.Add(btnTest01);
@@ -140,6 +186,8 @@ namespace WinFormsApp01
             Text = "Form1";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -153,5 +201,9 @@ namespace WinFormsApp01
         private TextBox textBoxUsername;
         private Button buttonLogin;
         private GroupBox groupBox2;
+        private GroupBox groupBox3;
+        private Button btnOpenFrm;
+        private Button btnSendInfo;
+        private TextBox tbInfo;
     }
 }
