@@ -63,7 +63,6 @@ namespace WinFormsApp01
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmInfo";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "通过委托在窗体间传值";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

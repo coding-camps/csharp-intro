@@ -104,5 +104,11 @@ namespace WinFormsApp01
             mainForm.Show();
             this.Hide();
         }
+
+        private void btnOpenFrm_Click(object sender, EventArgs e)
+        {
+            Form frmInfo = new FrmInfo();
+            frmInfo.Show();
+        }
     }
 }
