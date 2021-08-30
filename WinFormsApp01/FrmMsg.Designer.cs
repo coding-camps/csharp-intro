@@ -1,6 +1,6 @@
 namespace WinFormsApp01
 {
-    partial class FrmInfo
+    partial class FrmMsg
     {
         /// <summary>
         /// Required designer variable.
@@ -28,24 +28,24 @@ namespace WinFormsApp01
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            labelMsg = new Label();
             groupBox1 = new GroupBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // labelMsg
             // 
-            label1.AutoSize = true;
-            label1.ForeColor = SystemColors.HotTrack;
-            label1.Location = new Point(32, 80);
-            label1.Name = "label1";
-            label1.Size = new Size(182, 31);
-            label1.TabIndex = 0;
-            label1.Text = "接收消息的位置";
+            labelMsg.AutoSize = true;
+            labelMsg.ForeColor = SystemColors.HotTrack;
+            labelMsg.Location = new Point(32, 80);
+            labelMsg.Name = "labelMsg";
+            labelMsg.Size = new Size(182, 31);
+            labelMsg.TabIndex = 0;
+            labelMsg.Text = "接收消息的位置";
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(labelMsg);
             groupBox1.ForeColor = Color.SeaGreen;
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
@@ -54,7 +54,7 @@ namespace WinFormsApp01
             groupBox1.TabStop = false;
             groupBox1.Text = "这里是窗体传来的信息";
             // 
-            // FrmInfo
+            // FrmMsg
             // 
             AutoScaleDimensions = new SizeF(14F, 31F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -62,7 +62,7 @@ namespace WinFormsApp01
             Controls.Add(groupBox1);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "FrmInfo";
+            Name = "FrmMsg";
             Text = "通过委托在窗体间传值";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -71,7 +71,7 @@ namespace WinFormsApp01
 
         #endregion
 
-        private Label label1;
+        private Label labelMsg;
         private GroupBox groupBox1;
     }
 }

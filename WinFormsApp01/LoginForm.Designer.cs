@@ -37,8 +37,8 @@ namespace WinFormsApp01
             labelUsername = new Label();
             groupBox2 = new GroupBox();
             groupBox3 = new GroupBox();
-            tbInfo = new TextBox();
-            btnSendInfo = new Button();
+            textMsg = new TextBox();
+            btnSendMsg = new Button();
             btnOpenFrm = new Button();
             groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -134,8 +134,8 @@ namespace WinFormsApp01
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(tbInfo);
-            groupBox3.Controls.Add(btnSendInfo);
+            groupBox3.Controls.Add(textMsg);
+            groupBox3.Controls.Add(btnSendMsg);
             groupBox3.Controls.Add(btnOpenFrm);
             groupBox3.Location = new Point(43, 680);
             groupBox3.Name = "groupBox3";
@@ -144,23 +144,24 @@ namespace WinFormsApp01
             groupBox3.TabStop = false;
             groupBox3.Text = "委托案例之窗体间传值";
             // 
-            // tbInfo
+            // textMsg
             // 
-            tbInfo.Location = new Point(16, 56);
-            tbInfo.MaxLength = 17;
-            tbInfo.Name = "tbInfo";
-            tbInfo.PlaceholderText = "2.这里填写的是传给下个窗口的消息";
-            tbInfo.Size = new Size(436, 38);
-            tbInfo.TabIndex = 2;
+            textMsg.Location = new Point(16, 56);
+            textMsg.MaxLength = 17;
+            textMsg.Name = "textMsg";
+            textMsg.PlaceholderText = "2.这里填写的是传给下个窗口的消息";
+            textMsg.Size = new Size(436, 38);
+            textMsg.TabIndex = 2;
             // 
-            // btnSendInfo
+            // btnSendMsg
             // 
-            btnSendInfo.Location = new Point(258, 115);
-            btnSendInfo.Name = "btnSendInfo";
-            btnSendInfo.Size = new Size(194, 44);
-            btnSendInfo.TabIndex = 1;
-            btnSendInfo.Text = "3.发送消息";
-            btnSendInfo.UseVisualStyleBackColor = true;
+            btnSendMsg.Location = new Point(258, 115);
+            btnSendMsg.Name = "btnSendMsg";
+            btnSendMsg.Size = new Size(194, 44);
+            btnSendMsg.TabIndex = 1;
+            btnSendMsg.Text = "3.发送消息";
+            btnSendMsg.UseVisualStyleBackColor = true;
+            btnSendMsg.Click += btnSendMsg_Click;
             // 
             // btnOpenFrm
             // 
@@ -203,7 +204,7 @@ namespace WinFormsApp01
         private GroupBox groupBox2;
         private GroupBox groupBox3;
         private Button btnOpenFrm;
-        private Button btnSendInfo;
-        private TextBox tbInfo;
+        private Button btnSendMsg;
+        private TextBox textMsg;
     }
 }

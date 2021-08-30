@@ -107,8 +107,12 @@ namespace WinFormsApp01
 
         private void btnOpenFrm_Click(object sender, EventArgs e)
         {
-            Form frmInfo = new FrmInfo();
+            Form frmInfo = new FrmMsg();
             frmInfo.Show();
+        }
+
+        private void btnSendMsg_Click(object sender, EventArgs e)
+        {
         }
     }
 }
