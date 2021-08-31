@@ -13,6 +13,14 @@ namespace WinFormsApp01
         public FrmMsg()
         {
             InitializeComponent();
+            // FF3. 绑定委托
+            DelegateUtil.FrmToFrmMsgAction = ShowMsg;
+        }
+
+        // FF2. 写方法
+        private void ShowMsg(string obj)
+        {
+            this.labelMsg.Text = obj;
         }
     }
 }

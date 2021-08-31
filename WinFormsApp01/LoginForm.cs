@@ -113,6 +113,8 @@ namespace WinFormsApp01
 
         private void btnSendMsg_Click(object sender, EventArgs e)
         {
+            // FF4. 使用委托
+            DelegateUtil.FrmToFrmMsgAction(this.textMsg.Text);
         }
     }
 }
