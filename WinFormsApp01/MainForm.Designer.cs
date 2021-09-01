@@ -36,6 +36,14 @@ namespace WinFormsApp01
             labelNumber = new Label();
             textTotal = new TextBox();
             labelTotal = new Label();
+            mainMenu = new MenuStrip();
+            toolStripMenuItem1 = new ToolStripMenuItem();
+            toolStripMenuItem2 = new ToolStripMenuItem();
+            toolStripComboBox2 = new ToolStripComboBox();
+            toolStripSeparator1 = new ToolStripSeparator();
+            toolStripTextBox1 = new ToolStripTextBox();
+            toolStripComboBox1 = new ToolStripComboBox();
+            mainMenu.SuspendLayout();
             SuspendLayout();
             // 
             // labelWelcome
@@ -110,6 +118,51 @@ namespace WinFormsApp01
             labelTotal.TabIndex = 6;
             labelTotal.Text = "总价";
             // 
+            // mainMenu
+            // 
+            mainMenu.ImageScalingSize = new Size(32, 32);
+            mainMenu.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripComboBox1 });
+            mainMenu.Location = new Point(0, 0);
+            mainMenu.Name = "mainMenu";
+            mainMenu.Size = new Size(800, 43);
+            mainMenu.TabIndex = 8;
+            mainMenu.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem2, toolStripComboBox2, toolStripSeparator1, toolStripTextBox1 });
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(265, 39);
+            toolStripMenuItem1.Text = "toolStripMenuItem1";
+            // 
+            // toolStripMenuItem2
+            // 
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new Size(378, 44);
+            toolStripMenuItem2.Text = "toolStripMenuItem2";
+            // 
+            // toolStripComboBox2
+            // 
+            toolStripComboBox2.Items.AddRange(new object[] { "1", "2", "3" });
+            toolStripComboBox2.Name = "toolStripComboBox2";
+            toolStripComboBox2.Size = new Size(121, 39);
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(375, 6);
+            // 
+            // toolStripTextBox1
+            // 
+            toolStripTextBox1.Name = "toolStripTextBox1";
+            toolStripTextBox1.Size = new Size(100, 38);
+            // 
+            // toolStripComboBox1
+            // 
+            toolStripComboBox1.Items.AddRange(new object[] { "A", "B", "C" });
+            toolStripComboBox1.Name = "toolStripComboBox1";
+            toolStripComboBox1.Size = new Size(121, 39);
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(14F, 31F);
@@ -123,10 +176,14 @@ namespace WinFormsApp01
             Controls.Add(labelPrice);
             Controls.Add(btnCaculate);
             Controls.Add(labelWelcome);
+            Controls.Add(mainMenu);
+            MainMenuStrip = mainMenu;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
             FormClosing += Main_FormClosing;
+            mainMenu.ResumeLayout(false);
+            mainMenu.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -141,5 +198,12 @@ namespace WinFormsApp01
         private Label labelNumber;
         private TextBox textTotal;
         private Label labelTotal;
+        private MenuStrip mainMenu;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripComboBox toolStripComboBox1;
+        private ToolStripMenuItem toolStripMenuItem2;
+        private ToolStripComboBox toolStripComboBox2;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripTextBox toolStripTextBox1;
     }
 }
