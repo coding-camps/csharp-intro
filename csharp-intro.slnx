@@ -4,5 +4,6 @@
   </Folder>
   <Project Path="ConsoleApp01-MyLib/ConsoleApp01-MyLib.csproj" />
   <Project Path="ConsoleApp01/ConsoleApp01.csproj" />
+  <Project Path="UIControLib/UIControLib.csproj" />
   <Project Path="WinFormsApp01/WinFormsApp01.csproj" />
 </Solution>

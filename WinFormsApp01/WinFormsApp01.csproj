@@ -16,4 +16,8 @@
     <None Include="D:\github-coder211\coding-camps\csharp-intro\WinFormsApp01\.editorconfig" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UIControLib\UIControLib.csproj" />
+  </ItemGroup>
+
 </Project>
