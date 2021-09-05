@@ -23,8 +23,8 @@ namespace WinFormsApp01
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -40,8 +40,22 @@ namespace WinFormsApp01
             textMsg = new TextBox();
             btnSendMsg = new Button();
             btnOpenFrm = new Button();
+            groupBox4 = new GroupBox();
+            roundRect9 = new UIControLib.RoundRect();
+            roundRect6 = new UIControLib.RoundRect();
+            roundRect5 = new UIControLib.RoundRect();
+            roundRect4 = new UIControLib.RoundRect();
+            roundRect3 = new UIControLib.RoundRect();
+            roundRect7 = new UIControLib.RoundRect();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            btnSQLite = new Button();
+            tabPage2 = new TabPage();
             groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
+            groupBox4.SuspendLayout();
+            tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
             SuspendLayout();
             // 
             // btnTest01
@@ -173,11 +187,140 @@ namespace WinFormsApp01
             btnOpenFrm.UseVisualStyleBackColor = true;
             btnOpenFrm.Click += btnOpenFrm_Click;
             // 
+            // groupBox4
+            // 
+            groupBox4.BackColor = Color.LightGray;
+            groupBox4.Controls.Add(roundRect9);
+            groupBox4.Controls.Add(roundRect7);
+            groupBox4.Controls.Add(roundRect6);
+            groupBox4.Controls.Add(roundRect5);
+            groupBox4.Controls.Add(roundRect4);
+            groupBox4.Controls.Add(roundRect3);
+            groupBox4.FlatStyle = FlatStyle.Popup;
+            groupBox4.Location = new Point(762, 16);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(868, 257);
+            groupBox4.TabIndex = 7;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "这里的圆角框是自定义控件";
+            // 
+            // roundRect9
+            // 
+            roundRect9.BorderColor = Color.Red;
+            roundRect9.BorderWidth = 9;
+            roundRect9.FillColor = SystemColors.Control;
+            roundRect9.Location = new Point(545, 141);
+            roundRect9.Name = "roundRect9";
+            roundRect9.Size = new Size(219, 86);
+            roundRect9.TabIndex = 10;
+            roundRect9.Text = "roundRect9";
+            // 
+            // roundRect6
+            // 
+            roundRect6.BorderColor = Color.DarkGray;
+            roundRect6.BorderRadius = 20;
+            roundRect6.BorderWidth = 12;
+            roundRect6.FillColor = SystemColors.Control;
+            roundRect6.Location = new Point(667, 53);
+            roundRect6.Name = "roundRect6";
+            roundRect6.Size = new Size(150, 46);
+            roundRect6.TabIndex = 9;
+            roundRect6.Text = "roundRect6";
+            // 
+            // roundRect5
+            // 
+            roundRect5.BorderColor = Color.Red;
+            roundRect5.BorderRadius = 20;
+            roundRect5.BorderWidth = 10;
+            roundRect5.FillColor = SystemColors.Control;
+            roundRect5.Location = new Point(16, 44);
+            roundRect5.Name = "roundRect5";
+            roundRect5.Size = new Size(219, 113);
+            roundRect5.TabIndex = 8;
+            roundRect5.Text = "roundRect5";
+            // 
+            // roundRect4
+            // 
+            roundRect4.BorderColor = Color.LimeGreen;
+            roundRect4.BorderRadius = 15;
+            roundRect4.BorderWidth = 10;
+            roundRect4.FillColor = Color.LightCyan;
+            roundRect4.Location = new Point(256, 53);
+            roundRect4.Name = "roundRect4";
+            roundRect4.Size = new Size(212, 92);
+            roundRect4.TabIndex = 7;
+            roundRect4.Text = "roundRect4";
+            // 
+            // roundRect3
+            // 
+            roundRect3.BorderColor = Color.DarkGray;
+            roundRect3.FillColor = SystemColors.ButtonFace;
+            roundRect3.Location = new Point(496, 53);
+            roundRect3.Name = "roundRect3";
+            roundRect3.Size = new Size(150, 46);
+            roundRect3.TabIndex = 6;
+            roundRect3.Text = "roundRect3";
+            // 
+            // roundRect7
+            // 
+            roundRect7.BorderColor = Color.Red;
+            roundRect7.FillColor = Color.Snow;
+            roundRect7.Location = new Point(242, 167);
+            roundRect7.Name = "roundRect7";
+            roundRect7.Size = new Size(251, 60);
+            roundRect7.TabIndex = 8;
+            roundRect7.Text = "roundRect7";
+            // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Location = new Point(762, 306);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(868, 580);
+            tabControl1.TabIndex = 9;
+            // 
+            // tabPage1
+            // 
+            tabPage1.BackColor = Color.Transparent;
+            tabPage1.Controls.Add(btnSQLite);
+            tabPage1.ForeColor = SystemColors.Highlight;
+            tabPage1.Location = new Point(8, 45);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(852, 527);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "tabPage1";
+            // 
+            // btnSQLite
+            // 
+            btnSQLite.Location = new Point(6, 6);
+            btnSQLite.Name = "btnSQLite";
+            btnSQLite.Size = new Size(160, 65);
+            btnSQLite.TabIndex = 10;
+            btnSQLite.Text = "SQLite示例";
+            btnSQLite.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            tabPage2.BorderStyle = BorderStyle.FixedSingle;
+            tabPage2.ForeColor = Color.Tomato;
+            tabPage2.Location = new Point(8, 45);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(852, 527);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "tabPage2";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(14F, 31F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1642, 929);
+            Controls.Add(tabControl1);
+            Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox1);
             Controls.Add(groupBox2);
@@ -189,8 +332,15 @@ namespace WinFormsApp01
             groupBox1.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
+            groupBox4.ResumeLayout(false);
+            tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
             ResumeLayout(false);
         }
+
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
 
         #endregion
 
@@ -206,5 +356,13 @@ namespace WinFormsApp01
         private Button btnOpenFrm;
         private Button btnSendMsg;
         private TextBox textMsg;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private UIControLib.RoundRect roundRect3;
+        private UIControLib.RoundRect roundRect4;
+        private UIControLib.RoundRect roundRect5;
+        private UIControLib.RoundRect roundRect7;
+        private UIControLib.RoundRect roundRect9;
+        private UIControLib.RoundRect roundRect6;
+        private Button btnSQLite;
     }
 }
