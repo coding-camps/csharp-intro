@@ -42,13 +42,19 @@ namespace WinFormsApp01
             btnOpenFrm = new Button();
             groupBox4 = new GroupBox();
             roundRect9 = new UIControLib.RoundRect();
+            roundRect7 = new UIControLib.RoundRect();
             roundRect6 = new UIControLib.RoundRect();
             roundRect5 = new UIControLib.RoundRect();
             roundRect4 = new UIControLib.RoundRect();
             roundRect3 = new UIControLib.RoundRect();
-            roundRect7 = new UIControLib.RoundRect();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            gbRandom = new GroupBox();
+            tbRandomLen = new TextBox();
+            labelRandomLen = new Label();
+            btnRandomCopy = new Button();
+            randStr = new TextBox();
+            btnRandom = new Button();
             btnSQLite = new Button();
             tabPage2 = new TabPage();
             groupBox1.SuspendLayout();
@@ -56,6 +62,7 @@ namespace WinFormsApp01
             groupBox4.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            gbRandom.SuspendLayout();
             SuspendLayout();
             // 
             // btnTest01
@@ -215,6 +222,16 @@ namespace WinFormsApp01
             roundRect9.TabIndex = 10;
             roundRect9.Text = "roundRect9";
             // 
+            // roundRect7
+            // 
+            roundRect7.BorderColor = Color.Red;
+            roundRect7.FillColor = Color.Snow;
+            roundRect7.Location = new Point(242, 167);
+            roundRect7.Name = "roundRect7";
+            roundRect7.Size = new Size(251, 60);
+            roundRect7.TabIndex = 8;
+            roundRect7.Text = "roundRect7";
+            // 
             // roundRect6
             // 
             roundRect6.BorderColor = Color.DarkGray;
@@ -261,16 +278,6 @@ namespace WinFormsApp01
             roundRect3.TabIndex = 6;
             roundRect3.Text = "roundRect3";
             // 
-            // roundRect7
-            // 
-            roundRect7.BorderColor = Color.Red;
-            roundRect7.FillColor = Color.Snow;
-            roundRect7.Location = new Point(242, 167);
-            roundRect7.Name = "roundRect7";
-            roundRect7.Size = new Size(251, 60);
-            roundRect7.TabIndex = 8;
-            roundRect7.Text = "roundRect7";
-            // 
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage1);
@@ -284,6 +291,7 @@ namespace WinFormsApp01
             // tabPage1
             // 
             tabPage1.BackColor = Color.Transparent;
+            tabPage1.Controls.Add(gbRandom);
             tabPage1.Controls.Add(btnSQLite);
             tabPage1.ForeColor = SystemColors.Highlight;
             tabPage1.Location = new Point(8, 45);
@@ -293,9 +301,70 @@ namespace WinFormsApp01
             tabPage1.TabIndex = 0;
             tabPage1.Text = "tabPage1";
             // 
+            // gbRandom
+            // 
+            gbRandom.BackColor = SystemColors.GradientInactiveCaption;
+            gbRandom.Controls.Add(tbRandomLen);
+            gbRandom.Controls.Add(labelRandomLen);
+            gbRandom.Controls.Add(btnRandomCopy);
+            gbRandom.Controls.Add(randStr);
+            gbRandom.Controls.Add(btnRandom);
+            gbRandom.Location = new Point(22, 102);
+            gbRandom.Name = "gbRandom";
+            gbRandom.Size = new Size(397, 403);
+            gbRandom.TabIndex = 12;
+            gbRandom.TabStop = false;
+            gbRandom.Text = "随机字符串生成";
+            // 
+            // tbRandomLen
+            // 
+            tbRandomLen.Location = new Point(188, 50);
+            tbRandomLen.MaxLength = 3;
+            tbRandomLen.Name = "tbRandomLen";
+            tbRandomLen.Size = new Size(143, 38);
+            tbRandomLen.TabIndex = 17;
+            tbRandomLen.Text = "16";
+            // 
+            // labelRandomLen
+            // 
+            labelRandomLen.AutoSize = true;
+            labelRandomLen.Location = new Point(58, 50);
+            labelRandomLen.Name = "labelRandomLen";
+            labelRandomLen.Size = new Size(134, 31);
+            labelRandomLen.TabIndex = 16;
+            labelRandomLen.Text = "字符串长度";
+            // 
+            // btnRandomCopy
+            // 
+            btnRandomCopy.Location = new Point(75, 311);
+            btnRandomCopy.Name = "btnRandomCopy";
+            btnRandomCopy.Size = new Size(241, 56);
+            btnRandomCopy.TabIndex = 15;
+            btnRandomCopy.Text = "复制到剪切板";
+            btnRandomCopy.UseVisualStyleBackColor = true;
+            btnRandomCopy.Click += btnRandomCopy_Click;
+            // 
+            // randStr
+            // 
+            randStr.Location = new Point(20, 123);
+            randStr.Multiline = true;
+            randStr.Name = "randStr";
+            randStr.Size = new Size(350, 76);
+            randStr.TabIndex = 13;
+            // 
+            // btnRandom
+            // 
+            btnRandom.Location = new Point(75, 244);
+            btnRandom.Name = "btnRandom";
+            btnRandom.Size = new Size(241, 56);
+            btnRandom.TabIndex = 12;
+            btnRandom.Text = "生成随机字符串";
+            btnRandom.UseVisualStyleBackColor = true;
+            btnRandom.Click += btnRandom_Click;
+            // 
             // btnSQLite
             // 
-            btnSQLite.Location = new Point(6, 6);
+            btnSQLite.Location = new Point(22, 14);
             btnSQLite.Name = "btnSQLite";
             btnSQLite.Size = new Size(160, 65);
             btnSQLite.TabIndex = 10;
@@ -335,6 +404,8 @@ namespace WinFormsApp01
             groupBox4.ResumeLayout(false);
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            gbRandom.ResumeLayout(false);
+            gbRandom.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -364,5 +435,11 @@ namespace WinFormsApp01
         private UIControLib.RoundRect roundRect9;
         private UIControLib.RoundRect roundRect6;
         private Button btnSQLite;
+        private GroupBox gbRandom;
+        private Button btnRandom;
+        private TextBox randStr;
+        private Button btnRandomCopy;
+        private TextBox tbRandomLen;
+        private Label labelRandomLen;
     }
 }

@@ -1,3 +1,6 @@
+using System.Security.Cryptography;
+using System.Text;
+
 namespace WinFormsApp01
 {
     public partial class LoginForm : Form
@@ -115,6 +118,30 @@ namespace WinFormsApp01
         {
             // FF4. 使用委托
             DelegateUtil.FrmToFrmMsgAction(this.textMsg.Text);
+        }
+
+        private void btnRandom_Click(object sender, EventArgs e)
+        {
+            // 生成随机字符串
+            string letters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            RandomNumberGenerator generator = RandomNumberGenerator.Create();
+            StringBuilder stringBuilder = new StringBuilder();
+            byte[] randombytes = new byte[1];
+            int len = int.Parse(tbRandomLen.Text);
+            for (int i = 0; i < len; i++)
+            {
+                generator.GetBytes(randombytes);
+                int index = randombytes[0] % letters.Length;
+                stringBuilder.Append(letters[index]);
+            }
+            randStr.Text = stringBuilder.ToString();
+        }
+
+        private void btnRandomCopy_Click(object sender, EventArgs e)
+        {
+            // 复制随机字符串至剪切板
+            Clipboard.SetText(randStr.Text);
+            MessageBox.Show("文本已复制到剪切板。");
         }
     }
 }
