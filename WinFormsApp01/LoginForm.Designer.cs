@@ -57,6 +57,7 @@ namespace WinFormsApp01
             btnRandom = new Button();
             btnSQLite = new Button();
             tabPage2 = new TabPage();
+            btnModbus = new Button();
             groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
@@ -291,6 +292,7 @@ namespace WinFormsApp01
             // tabPage1
             // 
             tabPage1.BackColor = Color.Transparent;
+            tabPage1.Controls.Add(btnModbus);
             tabPage1.Controls.Add(gbRandom);
             tabPage1.Controls.Add(btnSQLite);
             tabPage1.ForeColor = SystemColors.Highlight;
@@ -383,6 +385,16 @@ namespace WinFormsApp01
             tabPage2.Text = "tabPage2";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnModbus
+            // 
+            btnModbus.Location = new Point(219, 14);
+            btnModbus.Name = "btnModbus";
+            btnModbus.Size = new Size(160, 65);
+            btnModbus.TabIndex = 13;
+            btnModbus.Text = "Modbus";
+            btnModbus.UseVisualStyleBackColor = true;
+            btnModbus.Click += btnModbus_Click;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(14F, 31F);
@@ -441,5 +453,6 @@ namespace WinFormsApp01
         private Button btnRandomCopy;
         private TextBox tbRandomLen;
         private Label labelRandomLen;
+        private Button btnModbus;
     }
 }

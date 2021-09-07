@@ -143,5 +143,11 @@ namespace WinFormsApp01
             Clipboard.SetText(randStr.Text);
             MessageBox.Show("文本已复制到剪切板。");
         }
+
+        private void btnModbus_Click(object sender, EventArgs e)
+        {
+            Form frmModbus = new FrmMobus();
+            frmModbus.ShowDialog();
+        }
     }
 }
