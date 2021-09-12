@@ -1,37 +1,78 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
+using ScottPlot;
 
 namespace WinFormsApp01
 {
     public partial class FrmMobus : Form
     {
+        List<DateTime> dataX = new List<DateTime>();
+        List<double> dataY = new List<double>();
+
         public FrmMobus()
         {
             InitializeComponent();
+            timerModbus.Interval = 1000;
+            timerModbus.Tick += Timer_Tick;
+            timerModbus.Start();
+        }
+
+        private void FrmMobus_Load(object sender, EventArgs e)
+        {
+            frmPlot.Plot.Font.Set("宋体");
+            InitializeChart();
         }
 
 
+        private void InitializeChart()
         {
+            frmPlot.Plot.Axes.DateTimeTicksBottom(); // 启用日期时间格式
+            frmPlot.Plot.RenderManager.RenderStarting += (s, e) =>
             {
+                Tick[] ticks = frmPlot.Plot.Axes.Bottom.TickGenerator.Ticks;
+                for (int i = 0; i < ticks.Length; i++)
+                {
+                    DateTime dt = DateTime.FromOADate(ticks[i].Position);
+                    string label = dt.ToString("HH:mm:ss");
+                    ticks[i] = new Tick(ticks[i].Position, label);
+                }
+            };
+            frmPlot.Plot.Axes.SetLimits(0, 1, 20, 30);
+            frmPlot.Plot.XLabel("时间");
+            frmPlot.Plot.YLabel("温度[°C]");
+            frmPlot.Plot.Title("温度监控");
         }
-        {
 
+        private void Timer_Tick(object? sender, EventArgs e)
+        {
+            UpdateChart();
+        }
+
+        private void UpdateChart()
+        {
+            DateTime now = DateTime.Now;
+            Random rand = new Random();
+            double newValue = rand.NextDouble() * 10 + 20; // Random Value between 20 and 30
+
+            if (dataX.Count == 100)
+            {
+                dataX.RemoveAt(0);
+                dataY.RemoveAt(0);
+            }
+
+            dataX.Add(now);
+            dataY.Add(newValue);
+
+            frmPlot.Plot.Clear(); // 清除之前的绘图
+            frmPlot.Plot.Add.Scatter(dataX.ToArray(), dataY.ToArray(), color: Colors.Red);
+            frmPlot.Plot.Axes.AutoScale();
             frmPlot.Refresh();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

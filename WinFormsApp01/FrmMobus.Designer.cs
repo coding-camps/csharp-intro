@@ -28,6 +28,7 @@ namespace WinFormsApp01
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             rSerial = new RadioButton();
             rTcpIP = new RadioButton();
             gbConnection = new GroupBox();
@@ -53,6 +54,7 @@ namespace WinFormsApp01
             tbDisplayPolls = new TextBox();
             frmPlot = new ScottPlot.WinForms.FormsPlot();
             gbPic = new GroupBox();
+            timerModbus = new System.Windows.Forms.Timer(components);
             gbConnection.SuspendLayout();
             gbSerialSettings.SuspendLayout();
             gbOperation.SuspendLayout();
@@ -364,5 +366,6 @@ namespace WinFormsApp01
         private TextBox tbDisplayPolls;
         private ScottPlot.WinForms.FormsPlot frmPlot;
         private GroupBox gbPic;
+        private System.Windows.Forms.Timer timerModbus;
     }
 }
