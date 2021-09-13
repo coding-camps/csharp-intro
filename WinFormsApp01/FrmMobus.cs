@@ -67,12 +67,15 @@ namespace WinFormsApp01
             frmPlot.Refresh();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void radioSerial_CheckedChanged(object sender, EventArgs e)
         {
+            gbSerialSettings.Enabled = true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void radioTcpIP_CheckedChanged(object sender, EventArgs e)
         {
+            gbSerialSettings.Enabled = false;
         }
     }
 }

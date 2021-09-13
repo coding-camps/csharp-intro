@@ -29,8 +29,8 @@ namespace WinFormsApp01
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            rSerial = new RadioButton();
-            rTcpIP = new RadioButton();
+            radioSerial = new RadioButton();
+            radioTcpIP = new RadioButton();
             gbConnection = new GroupBox();
             gbSerialSettings = new GroupBox();
             labelParity = new Label();
@@ -47,11 +47,11 @@ namespace WinFormsApp01
             btnDisconnect = new Button();
             gbOperation = new GroupBox();
             gbTimout = new GroupBox();
+            mtbTimeout = new MaskedTextBox();
             labelTimeoutUnit = new Label();
-            tbTimeout = new TextBox();
             gbDisplayPolls = new GroupBox();
+            mtbDisplayPolls = new MaskedTextBox();
             labelDisplayPollsUnit = new Label();
-            tbDisplayPolls = new TextBox();
             frmPlot = new ScottPlot.WinForms.FormsPlot();
             gbPic = new GroupBox();
             timerModbus = new System.Windows.Forms.Timer(components);
@@ -63,32 +63,34 @@ namespace WinFormsApp01
             gbPic.SuspendLayout();
             SuspendLayout();
             // 
-            // rSerial
+            // radioSerial
             // 
-            rSerial.AutoSize = true;
-            rSerial.Location = new Point(30, 42);
-            rSerial.Name = "rSerial";
-            rSerial.Size = new Size(334, 35);
-            rSerial.TabIndex = 0;
-            rSerial.TabStop = true;
-            rSerial.Text = "Serial Port (Modbus RTU)";
-            rSerial.UseVisualStyleBackColor = true;
+            radioSerial.AutoSize = true;
+            radioSerial.Location = new Point(30, 42);
+            radioSerial.Name = "radioSerial";
+            radioSerial.Size = new Size(334, 35);
+            radioSerial.TabIndex = 0;
+            radioSerial.TabStop = true;
+            radioSerial.Text = "Serial Port (Modbus RTU)";
+            radioSerial.UseVisualStyleBackColor = true;
+            radioSerial.CheckedChanged += radioSerial_CheckedChanged;
             // 
-            // rTcpIP
+            // radioTcpIP
             // 
-            rTcpIP.AutoSize = true;
-            rTcpIP.Location = new Point(30, 83);
-            rTcpIP.Name = "rTcpIP";
-            rTcpIP.Size = new Size(223, 35);
-            rTcpIP.TabIndex = 1;
-            rTcpIP.TabStop = true;
-            rTcpIP.Text = "Modbus TCP/IP";
-            rTcpIP.UseVisualStyleBackColor = true;
+            radioTcpIP.AutoSize = true;
+            radioTcpIP.Location = new Point(30, 83);
+            radioTcpIP.Name = "radioTcpIP";
+            radioTcpIP.Size = new Size(223, 35);
+            radioTcpIP.TabIndex = 1;
+            radioTcpIP.TabStop = true;
+            radioTcpIP.Text = "Modbus TCP/IP";
+            radioTcpIP.UseVisualStyleBackColor = true;
+            radioTcpIP.CheckedChanged += radioTcpIP_CheckedChanged;
             // 
             // gbConnection
             // 
-            gbConnection.Controls.Add(rSerial);
-            gbConnection.Controls.Add(rTcpIP);
+            gbConnection.Controls.Add(radioSerial);
+            gbConnection.Controls.Add(radioTcpIP);
             gbConnection.Location = new Point(27, 22);
             gbConnection.Name = "gbConnection";
             gbConnection.Size = new Size(448, 134);
@@ -164,6 +166,7 @@ namespace WinFormsApp01
             // cbParity
             // 
             cbParity.DisplayMember = "1";
+            cbParity.DropDownStyle = ComboBoxStyle.DropDownList;
             cbParity.FormattingEnabled = true;
             cbParity.Items.AddRange(new object[] { "1 stop bit", "2 stop bits" });
             cbParity.Location = new Point(162, 310);
@@ -174,6 +177,7 @@ namespace WinFormsApp01
             // 
             // cbStop
             // 
+            cbStop.DropDownStyle = ComboBoxStyle.DropDownList;
             cbStop.FormattingEnabled = true;
             cbStop.Location = new Point(162, 248);
             cbStop.Name = "cbStop";
@@ -182,6 +186,7 @@ namespace WinFormsApp01
             // 
             // cbData
             // 
+            cbData.DropDownStyle = ComboBoxStyle.DropDownList;
             cbData.FormattingEnabled = true;
             cbData.Location = new Point(162, 186);
             cbData.Name = "cbData";
@@ -190,6 +195,7 @@ namespace WinFormsApp01
             // 
             // cbBaud
             // 
+            cbBaud.DropDownStyle = ComboBoxStyle.DropDownList;
             cbBaud.FormattingEnabled = true;
             cbBaud.Location = new Point(164, 124);
             cbBaud.Name = "cbBaud";
@@ -198,6 +204,7 @@ namespace WinFormsApp01
             // 
             // cbSerial
             // 
+            cbSerial.DropDownStyle = ComboBoxStyle.DropDownList;
             cbSerial.FormattingEnabled = true;
             cbSerial.Location = new Point(162, 62);
             cbSerial.Name = "cbSerial";
@@ -212,7 +219,6 @@ namespace WinFormsApp01
             btnConnect.TabIndex = 4;
             btnConnect.Text = "连接";
             btnConnect.UseVisualStyleBackColor = true;
-            btnConnect.Click += button1_Click;
             // 
             // btnDisconnect
             // 
@@ -222,7 +228,6 @@ namespace WinFormsApp01
             btnDisconnect.TabIndex = 5;
             btnDisconnect.Text = "断开";
             btnDisconnect.UseVisualStyleBackColor = true;
-            btnDisconnect.Click += button2_Click;
             // 
             // gbOperation
             // 
@@ -237,14 +242,24 @@ namespace WinFormsApp01
             // 
             // gbTimout
             // 
+            gbTimout.Controls.Add(mtbTimeout);
             gbTimout.Controls.Add(labelTimeoutUnit);
-            gbTimout.Controls.Add(tbTimeout);
             gbTimout.Location = new Point(27, 162);
             gbTimout.Name = "gbTimout";
             gbTimout.Size = new Size(448, 103);
             gbTimout.TabIndex = 7;
             gbTimout.TabStop = false;
             gbTimout.Text = "Response Timeout";
+            // 
+            // mtbTimeout
+            // 
+            mtbTimeout.Location = new Point(30, 46);
+            mtbTimeout.Mask = "0000";
+            mtbTimeout.Name = "mtbTimeout";
+            mtbTimeout.Size = new Size(200, 38);
+            mtbTimeout.TabIndex = 2;
+            mtbTimeout.Text = "1000";
+            mtbTimeout.TextAlign = HorizontalAlignment.Right;
             // 
             // labelTimeoutUnit
             // 
@@ -255,24 +270,26 @@ namespace WinFormsApp01
             labelTimeoutUnit.TabIndex = 1;
             labelTimeoutUnit.Text = "[ms]";
             // 
-            // tbTimeout
-            // 
-            tbTimeout.Location = new Point(30, 48);
-            tbTimeout.Name = "tbTimeout";
-            tbTimeout.Size = new Size(200, 38);
-            tbTimeout.TabIndex = 0;
-            tbTimeout.Text = "1000";
-            // 
             // gbDisplayPolls
             // 
+            gbDisplayPolls.Controls.Add(mtbDisplayPolls);
             gbDisplayPolls.Controls.Add(labelDisplayPollsUnit);
-            gbDisplayPolls.Controls.Add(tbDisplayPolls);
             gbDisplayPolls.Location = new Point(27, 273);
             gbDisplayPolls.Name = "gbDisplayPolls";
             gbDisplayPolls.Size = new Size(448, 118);
             gbDisplayPolls.TabIndex = 8;
             gbDisplayPolls.TabStop = false;
             gbDisplayPolls.Text = "Display Between Polls";
+            // 
+            // mtbDisplayPolls
+            // 
+            mtbDisplayPolls.Location = new Point(30, 48);
+            mtbDisplayPolls.Mask = "0000";
+            mtbDisplayPolls.Name = "mtbDisplayPolls";
+            mtbDisplayPolls.Size = new Size(200, 38);
+            mtbDisplayPolls.TabIndex = 11;
+            mtbDisplayPolls.Text = "20";
+            mtbDisplayPolls.TextAlign = HorizontalAlignment.Right;
             // 
             // labelDisplayPollsUnit
             // 
@@ -282,14 +299,6 @@ namespace WinFormsApp01
             labelDisplayPollsUnit.Size = new Size(63, 31);
             labelDisplayPollsUnit.TabIndex = 3;
             labelDisplayPollsUnit.Text = "[ms]";
-            // 
-            // tbDisplayPolls
-            // 
-            tbDisplayPolls.Location = new Point(30, 48);
-            tbDisplayPolls.Name = "tbDisplayPolls";
-            tbDisplayPolls.Size = new Size(200, 38);
-            tbDisplayPolls.TabIndex = 2;
-            tbDisplayPolls.Text = "20";
             // 
             // frmPlot
             // 
@@ -341,8 +350,8 @@ namespace WinFormsApp01
 
         #endregion
 
-        private RadioButton rSerial;
-        private RadioButton rTcpIP;
+        private RadioButton radioSerial;
+        private RadioButton radioTcpIP;
         private GroupBox gbConnection;
         private GroupBox gbSerialSettings;
         private ComboBox cbSerial;
@@ -361,11 +370,11 @@ namespace WinFormsApp01
         private GroupBox gbTimout;
         private GroupBox gbDisplayPolls;
         private Label labelTimeoutUnit;
-        private TextBox tbTimeout;
         private Label labelDisplayPollsUnit;
-        private TextBox tbDisplayPolls;
         private ScottPlot.WinForms.FormsPlot frmPlot;
         private GroupBox gbPic;
         private System.Windows.Forms.Timer timerModbus;
+        private MaskedTextBox mtbDisplayPolls;
+        private MaskedTextBox mtbTimeout;
     }
 }
