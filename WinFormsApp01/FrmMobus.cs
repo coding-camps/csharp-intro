@@ -10,21 +10,26 @@ namespace WinFormsApp01
         public FrmMobus()
         {
             InitializeComponent();
+        }
+
+        private void FrmMobus_Load(object sender, EventArgs e)
+        {
+            radioSerial.Checked = true;
+
+            InitializeChart();
             timerModbus.Interval = 1000;
             timerModbus.Tick += Timer_Tick;
             timerModbus.Start();
         }
 
-        private void FrmMobus_Load(object sender, EventArgs e)
-        {
-            frmPlot.Plot.Font.Set("宋体");
-            InitializeChart();
-        }
-
 
         private void InitializeChart()
         {
-            frmPlot.Plot.Axes.DateTimeTicksBottom(); // 启用日期时间格式
+            // 显示中文
+            frmPlot.Plot.Font.Set("宋体");
+
+            // 启用日期时间格式
+            frmPlot.Plot.Axes.DateTimeTicksBottom();
             frmPlot.Plot.RenderManager.RenderStarting += (s, e) =>
             {
                 Tick[] ticks = frmPlot.Plot.Axes.Bottom.TickGenerator.Ticks;
@@ -39,6 +44,9 @@ namespace WinFormsApp01
             frmPlot.Plot.XLabel("时间");
             frmPlot.Plot.YLabel("温度[°C]");
             frmPlot.Plot.Title("温度监控");
+
+            frmPlot.Plot.Grid.MajorLineColor = Colors.Green.WithOpacity(.3);
+            frmPlot.Plot.Grid.MajorLineWidth = 1;
         }
 
         private void Timer_Tick(object? sender, EventArgs e)
@@ -52,7 +60,7 @@ namespace WinFormsApp01
             Random rand = new Random();
             double newValue = rand.NextDouble() * 10 + 20; // Random Value between 20 and 30
 
-            if (dataX.Count == 100)
+            if (dataX.Count == 25)
             {
                 dataX.RemoveAt(0);
                 dataY.RemoveAt(0);
