@@ -1,4 +1,5 @@
 using ScottPlot;
+using System.IO.Ports;
 
 namespace WinFormsApp01
 {
@@ -16,12 +17,22 @@ namespace WinFormsApp01
         {
             radioSerial.Checked = true;
 
+            loadSerialPorts();
             InitializeChart();
             timerModbus.Interval = 1000;
             timerModbus.Tick += Timer_Tick;
             timerModbus.Start();
         }
 
+        private void loadSerialPorts()
+        {
+            string[] ports = SerialPort.GetPortNames();
+            for (int i = 0; i < ports.Length; i++)
+            {
+                cbSerial.Items.Add(ports[i]);
+            }
+            cbSerial.SelectedIndex = 0;
+        }
 
         private void InitializeChart()
         {
