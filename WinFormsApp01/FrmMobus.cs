@@ -18,6 +18,8 @@ namespace WinFormsApp01
             radioSerial.Checked = true;
 
             loadSerialPorts();
+            loadSerialSettings();
+
             InitializeChart();
             timerModbus.Interval = 1000;
             timerModbus.Tick += Timer_Tick;
@@ -33,6 +35,15 @@ namespace WinFormsApp01
             }
             cbSerial.SelectedIndex = 0;
         }
+
+        private void loadSerialSettings()
+        {
+            cbBaud.SelectedIndex = 0;
+            cbData.SelectedIndex = 1;
+            cbStop.SelectedIndex = 0;
+            cbParity.SelectedIndex = 0;
+        }
+
 
         private void InitializeChart()
         {

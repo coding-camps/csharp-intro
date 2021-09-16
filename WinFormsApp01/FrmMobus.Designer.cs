@@ -168,7 +168,7 @@ namespace WinFormsApp01
             cbParity.DisplayMember = "1";
             cbParity.DropDownStyle = ComboBoxStyle.DropDownList;
             cbParity.FormattingEnabled = true;
-            cbParity.Items.AddRange(new object[] { "1 stop bit", "2 stop bits" });
+            cbParity.Items.AddRange(new object[] { "None Parity", "Odd Parity", "Even Parity" });
             cbParity.Location = new Point(162, 310);
             cbParity.Name = "cbParity";
             cbParity.Size = new Size(242, 39);
@@ -179,6 +179,7 @@ namespace WinFormsApp01
             // 
             cbStop.DropDownStyle = ComboBoxStyle.DropDownList;
             cbStop.FormattingEnabled = true;
+            cbStop.Items.AddRange(new object[] { "1 stop bit", "2 stop bits" });
             cbStop.Location = new Point(162, 248);
             cbStop.Name = "cbStop";
             cbStop.Size = new Size(242, 39);
@@ -188,6 +189,7 @@ namespace WinFormsApp01
             // 
             cbData.DropDownStyle = ComboBoxStyle.DropDownList;
             cbData.FormattingEnabled = true;
+            cbData.Items.AddRange(new object[] { "7 Data Bits", "8 Data Bits" });
             cbData.Location = new Point(162, 186);
             cbData.Name = "cbData";
             cbData.Size = new Size(242, 39);
@@ -197,6 +199,7 @@ namespace WinFormsApp01
             // 
             cbBaud.DropDownStyle = ComboBoxStyle.DropDownList;
             cbBaud.FormattingEnabled = true;
+            cbBaud.Items.AddRange(new object[] { "9600", "14400", "19200" });
             cbBaud.Location = new Point(164, 124);
             cbBaud.Name = "cbBaud";
             cbBaud.Size = new Size(242, 39);
