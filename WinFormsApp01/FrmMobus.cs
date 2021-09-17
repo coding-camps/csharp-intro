@@ -107,5 +107,26 @@ namespace WinFormsApp01
         {
             gbSerialSettings.Enabled = false;
         }
+
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            // 连接
+            operState.BackColor = System.Drawing.Color.Green;
+            operState.Text = "连接";
+        }
+
+        private void btnDisconnect_Click(object sender, EventArgs e)
+        {
+            // 断开连接
+            operState.BackColor = System.Drawing.Color.LightGray;
+            operState.Text = "断开";
+        }
+
+        private void btnDraw_Click(object sender, EventArgs e)
+        {
+            // 画图
+            operState.BackColor = System.Drawing.Color.LightPink;
+            operState.Text = "画图";
+        }
     }
 }

@@ -46,6 +46,8 @@ namespace WinFormsApp01
             btnConnect = new Button();
             btnDisconnect = new Button();
             gbOperation = new GroupBox();
+            operState = new Label();
+            btnDraw = new Button();
             gbTimout = new GroupBox();
             mtbTimeout = new MaskedTextBox();
             labelTimeoutUnit = new Label();
@@ -55,6 +57,7 @@ namespace WinFormsApp01
             frmPlot = new ScottPlot.WinForms.FormsPlot();
             gbPic = new GroupBox();
             timerModbus = new System.Windows.Forms.Timer(components);
+            labelComment = new Label();
             gbConnection.SuspendLayout();
             gbSerialSettings.SuspendLayout();
             gbOperation.SuspendLayout();
@@ -216,24 +219,28 @@ namespace WinFormsApp01
             // 
             // btnConnect
             // 
-            btnConnect.Location = new Point(21, 37);
+            btnConnect.Location = new Point(225, 38);
             btnConnect.Name = "btnConnect";
             btnConnect.Size = new Size(150, 46);
             btnConnect.TabIndex = 4;
             btnConnect.Text = "连接";
             btnConnect.UseVisualStyleBackColor = true;
+            btnConnect.Click += btnConnect_Click;
             // 
             // btnDisconnect
             // 
-            btnDisconnect.Location = new Point(214, 37);
+            btnDisconnect.Location = new Point(477, 38);
             btnDisconnect.Name = "btnDisconnect";
             btnDisconnect.Size = new Size(150, 46);
             btnDisconnect.TabIndex = 5;
             btnDisconnect.Text = "断开";
             btnDisconnect.UseVisualStyleBackColor = true;
+            btnDisconnect.Click += btnDisconnect_Click;
             // 
             // gbOperation
             // 
+            gbOperation.Controls.Add(operState);
+            gbOperation.Controls.Add(btnDraw);
             gbOperation.Controls.Add(btnDisconnect);
             gbOperation.Controls.Add(btnConnect);
             gbOperation.Location = new Point(27, 971);
@@ -242,6 +249,26 @@ namespace WinFormsApp01
             gbOperation.TabIndex = 6;
             gbOperation.TabStop = false;
             gbOperation.Text = "Operation";
+            // 
+            // operState
+            // 
+            operState.BackColor = Color.LightGray;
+            operState.Location = new Point(65, 37);
+            operState.Name = "operState";
+            operState.Size = new Size(121, 49);
+            operState.TabIndex = 7;
+            operState.Text = "操作状态";
+            operState.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnDraw
+            // 
+            btnDraw.Location = new Point(729, 38);
+            btnDraw.Name = "btnDraw";
+            btnDraw.Size = new Size(150, 46);
+            btnDraw.TabIndex = 6;
+            btnDraw.Text = "画图";
+            btnDraw.UseVisualStyleBackColor = true;
+            btnDraw.Click += btnDraw_Click;
             // 
             // gbTimout
             // 
@@ -321,11 +348,21 @@ namespace WinFormsApp01
             gbPic.TabStop = false;
             gbPic.Text = "Curve";
             // 
+            // labelComment
+            // 
+            labelComment.AutoSize = true;
+            labelComment.Location = new Point(998, 22);
+            labelComment.Name = "labelComment";
+            labelComment.Size = new Size(617, 62);
+            labelComment.TabIndex = 11;
+            labelComment.Text = "1. 创建串口或网口（实体或虚拟），界面即可正常显示；\r\n2. 创建Modbus Slave模拟器，点击开始，即可画图。";
+            // 
             // FrmMobus
             // 
             AutoScaleDimensions = new SizeF(14F, 31F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1679, 1104);
+            Controls.Add(labelComment);
             Controls.Add(gbPic);
             Controls.Add(gbDisplayPolls);
             Controls.Add(gbTimout);
@@ -349,6 +386,7 @@ namespace WinFormsApp01
             gbDisplayPolls.PerformLayout();
             gbPic.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -379,5 +417,8 @@ namespace WinFormsApp01
         private System.Windows.Forms.Timer timerModbus;
         private MaskedTextBox mtbDisplayPolls;
         private MaskedTextBox mtbTimeout;
+        private Label labelComment;
+        private Button btnDraw;
+        private Label operState;
     }
 }
