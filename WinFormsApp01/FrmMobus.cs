@@ -1,5 +1,6 @@
 using ScottPlot;
 using System.IO.Ports;
+using Color = System.Drawing.Color;
 
 namespace WinFormsApp01
 {
@@ -17,26 +18,25 @@ namespace WinFormsApp01
         {
             radioSerial.Checked = true;
 
-            loadSerialPorts();
-            loadSerialSettings();
+            InitSerialPorts();
+            InitSerialSettings();
 
             InitializeChart();
-            timerModbus.Interval = 1000;
-            timerModbus.Tick += Timer_Tick;
-            timerModbus.Start();
+            InitTimer();
         }
 
-        private void loadSerialPorts()
+        private void InitSerialPorts()
         {
             string[] ports = SerialPort.GetPortNames();
             for (int i = 0; i < ports.Length; i++)
             {
                 cbSerial.Items.Add(ports[i]);
             }
+
             cbSerial.SelectedIndex = 0;
         }
 
-        private void loadSerialSettings()
+        private void InitSerialSettings()
         {
             cbBaud.SelectedIndex = 0;
             cbData.SelectedIndex = 1;
@@ -69,6 +69,13 @@ namespace WinFormsApp01
 
             frmPlot.Plot.Grid.MajorLineColor = Colors.Green.WithOpacity(.3);
             frmPlot.Plot.Grid.MajorLineWidth = 1;
+        }
+
+        private void InitTimer()
+        {
+            timerModbus.Interval = 1000;
+            timerModbus.Tick += Timer_Tick;
+            timerModbus.Start();
         }
 
         private void Timer_Tick(object? sender, EventArgs e)
@@ -111,21 +118,21 @@ namespace WinFormsApp01
         private void btnConnect_Click(object sender, EventArgs e)
         {
             // 连接
-            operState.BackColor = System.Drawing.Color.Green;
+            operState.BackColor = Color.Green;
             operState.Text = "连接";
         }
 
         private void btnDisconnect_Click(object sender, EventArgs e)
         {
             // 断开连接
-            operState.BackColor = System.Drawing.Color.LightGray;
+            operState.BackColor = Color.LightGray;
             operState.Text = "断开";
         }
 
         private void btnDraw_Click(object sender, EventArgs e)
         {
             // 画图
-            operState.BackColor = System.Drawing.Color.LightPink;
+            operState.BackColor = Color.LightPink;
             operState.Text = "画图";
         }
     }
