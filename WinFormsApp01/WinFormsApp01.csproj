@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="NModbus" Version="3.0.83" />
+    <PackageReference Include="NModbus.Serial" Version="3.0.83" />
     <PackageReference Include="ScottPlot.WinForms" Version="5.1.58" />
     <PackageReference Include="System.IO.Ports" Version="10.0.8" />
   </ItemGroup>

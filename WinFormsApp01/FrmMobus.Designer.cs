@@ -47,7 +47,6 @@ namespace WinFormsApp01
             btnDisconnect = new Button();
             gbOperation = new GroupBox();
             operState = new Label();
-            btnDraw = new Button();
             gbTimout = new GroupBox();
             mtbTimeout = new MaskedTextBox();
             labelTimeoutUnit = new Label();
@@ -58,12 +57,18 @@ namespace WinFormsApp01
             gbPic = new GroupBox();
             timerModbus = new System.Windows.Forms.Timer(components);
             labelComment = new Label();
+            gbOper = new GroupBox();
+            tbSlaveID = new TextBox();
+            labelSlaveID = new Label();
+            currentValue = new Label();
+            currentTime = new Label();
             gbConnection.SuspendLayout();
             gbSerialSettings.SuspendLayout();
             gbOperation.SuspendLayout();
             gbTimout.SuspendLayout();
             gbDisplayPolls.SuspendLayout();
             gbPic.SuspendLayout();
+            gbOper.SuspendLayout();
             SuspendLayout();
             // 
             // radioSerial
@@ -94,9 +99,9 @@ namespace WinFormsApp01
             // 
             gbConnection.Controls.Add(radioSerial);
             gbConnection.Controls.Add(radioTcpIP);
-            gbConnection.Location = new Point(27, 22);
+            gbConnection.Location = new Point(16, 94);
             gbConnection.Name = "gbConnection";
-            gbConnection.Size = new Size(448, 134);
+            gbConnection.Size = new Size(375, 134);
             gbConnection.TabIndex = 2;
             gbConnection.TabStop = false;
             gbConnection.Text = "Connection";
@@ -114,9 +119,9 @@ namespace WinFormsApp01
             gbSerialSettings.Controls.Add(cbBaud);
             gbSerialSettings.Controls.Add(cbSerial);
             gbSerialSettings.ForeColor = SystemColors.ControlText;
-            gbSerialSettings.Location = new Point(503, 22);
+            gbSerialSettings.Location = new Point(16, 234);
             gbSerialSettings.Name = "gbSerialSettings";
-            gbSerialSettings.Size = new Size(448, 369);
+            gbSerialSettings.Size = new Size(375, 369);
             gbSerialSettings.TabIndex = 3;
             gbSerialSettings.TabStop = false;
             gbSerialSettings.Text = "Serial Settings";
@@ -124,7 +129,7 @@ namespace WinFormsApp01
             // labelParity
             // 
             labelParity.AutoSize = true;
-            labelParity.Location = new Point(39, 312);
+            labelParity.Location = new Point(39, 251);
             labelParity.Name = "labelParity";
             labelParity.Size = new Size(116, 31);
             labelParity.TabIndex = 9;
@@ -133,7 +138,7 @@ namespace WinFormsApp01
             // labelStop
             // 
             labelStop.AutoSize = true;
-            labelStop.Location = new Point(51, 249);
+            labelStop.Location = new Point(51, 313);
             labelStop.Name = "labelStop";
             labelStop.Size = new Size(104, 31);
             labelStop.TabIndex = 8;
@@ -171,10 +176,9 @@ namespace WinFormsApp01
             cbParity.DisplayMember = "1";
             cbParity.DropDownStyle = ComboBoxStyle.DropDownList;
             cbParity.FormattingEnabled = true;
-            cbParity.Items.AddRange(new object[] { "None Parity", "Odd Parity", "Even Parity" });
-            cbParity.Location = new Point(162, 310);
+            cbParity.Location = new Point(164, 248);
             cbParity.Name = "cbParity";
-            cbParity.Size = new Size(242, 39);
+            cbParity.Size = new Size(178, 39);
             cbParity.TabIndex = 4;
             cbParity.ValueMember = "1";
             // 
@@ -182,20 +186,18 @@ namespace WinFormsApp01
             // 
             cbStop.DropDownStyle = ComboBoxStyle.DropDownList;
             cbStop.FormattingEnabled = true;
-            cbStop.Items.AddRange(new object[] { "1 stop bit", "2 stop bits" });
-            cbStop.Location = new Point(162, 248);
+            cbStop.Location = new Point(162, 310);
             cbStop.Name = "cbStop";
-            cbStop.Size = new Size(242, 39);
+            cbStop.Size = new Size(178, 39);
             cbStop.TabIndex = 3;
             // 
             // cbData
             // 
             cbData.DropDownStyle = ComboBoxStyle.DropDownList;
             cbData.FormattingEnabled = true;
-            cbData.Items.AddRange(new object[] { "7 Data Bits", "8 Data Bits" });
             cbData.Location = new Point(162, 186);
             cbData.Name = "cbData";
-            cbData.Size = new Size(242, 39);
+            cbData.Size = new Size(178, 39);
             cbData.TabIndex = 2;
             // 
             // cbBaud
@@ -205,7 +207,7 @@ namespace WinFormsApp01
             cbBaud.Items.AddRange(new object[] { "9600", "14400", "19200" });
             cbBaud.Location = new Point(164, 124);
             cbBaud.Name = "cbBaud";
-            cbBaud.Size = new Size(242, 39);
+            cbBaud.Size = new Size(176, 39);
             cbBaud.TabIndex = 1;
             // 
             // cbSerial
@@ -214,12 +216,12 @@ namespace WinFormsApp01
             cbSerial.FormattingEnabled = true;
             cbSerial.Location = new Point(162, 62);
             cbSerial.Name = "cbSerial";
-            cbSerial.Size = new Size(242, 39);
+            cbSerial.Size = new Size(178, 39);
             cbSerial.TabIndex = 0;
             // 
             // btnConnect
             // 
-            btnConnect.Location = new Point(225, 38);
+            btnConnect.Location = new Point(214, 49);
             btnConnect.Name = "btnConnect";
             btnConnect.Size = new Size(150, 46);
             btnConnect.TabIndex = 4;
@@ -229,7 +231,7 @@ namespace WinFormsApp01
             // 
             // btnDisconnect
             // 
-            btnDisconnect.Location = new Point(477, 38);
+            btnDisconnect.Location = new Point(394, 49);
             btnDisconnect.Name = "btnDisconnect";
             btnDisconnect.Size = new Size(150, 46);
             btnDisconnect.TabIndex = 5;
@@ -240,12 +242,11 @@ namespace WinFormsApp01
             // gbOperation
             // 
             gbOperation.Controls.Add(operState);
-            gbOperation.Controls.Add(btnDraw);
             gbOperation.Controls.Add(btnDisconnect);
             gbOperation.Controls.Add(btnConnect);
-            gbOperation.Location = new Point(27, 971);
+            gbOperation.Location = new Point(16, 731);
             gbOperation.Name = "gbOperation";
-            gbOperation.Size = new Size(924, 104);
+            gbOperation.Size = new Size(580, 118);
             gbOperation.TabIndex = 6;
             gbOperation.TabStop = false;
             gbOperation.Text = "Operation";
@@ -253,30 +254,20 @@ namespace WinFormsApp01
             // operState
             // 
             operState.BackColor = Color.LightGray;
-            operState.Location = new Point(65, 37);
+            operState.Location = new Point(50, 48);
             operState.Name = "operState";
             operState.Size = new Size(121, 49);
             operState.TabIndex = 7;
             operState.Text = "操作状态";
             operState.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // btnDraw
-            // 
-            btnDraw.Location = new Point(729, 38);
-            btnDraw.Name = "btnDraw";
-            btnDraw.Size = new Size(150, 46);
-            btnDraw.TabIndex = 6;
-            btnDraw.Text = "画图";
-            btnDraw.UseVisualStyleBackColor = true;
-            btnDraw.Click += btnDraw_Click;
-            // 
             // gbTimout
             // 
             gbTimout.Controls.Add(mtbTimeout);
             gbTimout.Controls.Add(labelTimeoutUnit);
-            gbTimout.Location = new Point(27, 162);
+            gbTimout.Location = new Point(602, 746);
             gbTimout.Name = "gbTimout";
-            gbTimout.Size = new Size(448, 103);
+            gbTimout.Size = new Size(375, 103);
             gbTimout.TabIndex = 7;
             gbTimout.TabStop = false;
             gbTimout.Text = "Response Timeout";
@@ -304,9 +295,9 @@ namespace WinFormsApp01
             // 
             gbDisplayPolls.Controls.Add(mtbDisplayPolls);
             gbDisplayPolls.Controls.Add(labelDisplayPollsUnit);
-            gbDisplayPolls.Location = new Point(27, 273);
+            gbDisplayPolls.Location = new Point(993, 746);
             gbDisplayPolls.Name = "gbDisplayPolls";
-            gbDisplayPolls.Size = new Size(448, 118);
+            gbDisplayPolls.Size = new Size(375, 103);
             gbDisplayPolls.TabIndex = 8;
             gbDisplayPolls.TabStop = false;
             gbDisplayPolls.Text = "Display Between Polls";
@@ -335,15 +326,15 @@ namespace WinFormsApp01
             frmPlot.Dock = DockStyle.Fill;
             frmPlot.Location = new Point(3, 34);
             frmPlot.Name = "frmPlot";
-            frmPlot.Size = new Size(918, 496);
+            frmPlot.Size = new Size(1016, 581);
             frmPlot.TabIndex = 9;
             // 
             // gbPic
             // 
             gbPic.Controls.Add(frmPlot);
-            gbPic.Location = new Point(27, 414);
+            gbPic.Location = new Point(410, 94);
             gbPic.Name = "gbPic";
-            gbPic.Size = new Size(924, 533);
+            gbPic.Size = new Size(1022, 618);
             gbPic.TabIndex = 10;
             gbPic.TabStop = false;
             gbPic.Text = "Curve";
@@ -351,23 +342,74 @@ namespace WinFormsApp01
             // labelComment
             // 
             labelComment.AutoSize = true;
-            labelComment.Location = new Point(998, 22);
+            labelComment.Location = new Point(12, 9);
             labelComment.Name = "labelComment";
             labelComment.Size = new Size(617, 62);
             labelComment.TabIndex = 11;
             labelComment.Text = "1. 创建串口或网口（实体或虚拟），界面即可正常显示；\r\n2. 创建Modbus Slave模拟器，点击开始，即可画图。";
             // 
+            // gbOper
+            // 
+            gbOper.Controls.Add(tbSlaveID);
+            gbOper.Controls.Add(labelSlaveID);
+            gbOper.Location = new Point(16, 619);
+            gbOper.Name = "gbOper";
+            gbOper.Size = new Size(375, 106);
+            gbOper.TabIndex = 12;
+            gbOper.TabStop = false;
+            gbOper.Text = "Operate";
+            // 
+            // tbSlaveID
+            // 
+            tbSlaveID.Location = new Point(164, 43);
+            tbSlaveID.Name = "tbSlaveID";
+            tbSlaveID.Size = new Size(170, 38);
+            tbSlaveID.TabIndex = 1;
+            tbSlaveID.Text = "1";
+            // 
+            // labelSlaveID
+            // 
+            labelSlaveID.AutoSize = true;
+            labelSlaveID.Location = new Point(49, 43);
+            labelSlaveID.Name = "labelSlaveID";
+            labelSlaveID.Size = new Size(106, 31);
+            labelSlaveID.TabIndex = 0;
+            labelSlaveID.Text = "Slave ID";
+            // 
+            // currentValue
+            // 
+            currentValue.BackColor = Color.LightCyan;
+            currentValue.Location = new Point(1240, 29);
+            currentValue.Name = "currentValue";
+            currentValue.Size = new Size(162, 62);
+            currentValue.TabIndex = 13;
+            currentValue.Text = "值";
+            currentValue.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // currentTime
+            // 
+            currentTime.BackColor = Color.LightCyan;
+            currentTime.Location = new Point(1072, 29);
+            currentTime.Name = "currentTime";
+            currentTime.Size = new Size(162, 62);
+            currentTime.TabIndex = 14;
+            currentTime.Text = "时间";
+            currentTime.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // FrmMobus
             // 
             AutoScaleDimensions = new SizeF(14F, 31F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1679, 1104);
+            ClientSize = new Size(1449, 887);
+            Controls.Add(currentTime);
+            Controls.Add(currentValue);
+            Controls.Add(gbOper);
             Controls.Add(labelComment);
+            Controls.Add(gbSerialSettings);
             Controls.Add(gbPic);
             Controls.Add(gbDisplayPolls);
             Controls.Add(gbTimout);
             Controls.Add(gbOperation);
-            Controls.Add(gbSerialSettings);
             Controls.Add(gbConnection);
             MaximizeBox = false;
             MinimizeBox = false;
@@ -385,6 +427,8 @@ namespace WinFormsApp01
             gbDisplayPolls.ResumeLayout(false);
             gbDisplayPolls.PerformLayout();
             gbPic.ResumeLayout(false);
+            gbOper.ResumeLayout(false);
+            gbOper.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -418,7 +462,11 @@ namespace WinFormsApp01
         private MaskedTextBox mtbDisplayPolls;
         private MaskedTextBox mtbTimeout;
         private Label labelComment;
-        private Button btnDraw;
         private Label operState;
+        private GroupBox gbOper;
+        private Label labelSlaveID;
+        private TextBox tbSlaveID;
+        private Label currentValue;
+        private Label currentTime;
     }
 }
